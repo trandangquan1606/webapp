@@ -1,0 +1,28 @@
+{% extends "page\base1.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<style>
+    /* Định dạng chung cho tất cả các đoạn văn bản */
+    p {
+        color: #34495e; /* Màu chữ xám đậm */
+        font-family: 'Arial', sans-serif; /* Kiểu chữ */
+        font-size: 16px; /* Kích thước chữ vừa phải */
+        line-height: 1.5; /* Khoảng cách giữa các dòng */
+        margin: 10px 0; /* Khoảng cách trên và dưới giữa các đoạn văn bản */
+        padding: 10px; /* Thêm khoảng cách nội bộ */
+        border-radius: 5px; /* Bo tròn các góc */
+        background-color: #ecf0f1; /* Màu nền nhạt */
+    }
+
+    /* Tạo hiệu ứng khi di chuột qua các đoạn văn bản */
+    p:hover {
+        background-color: #dfe6e9; /* Màu nền nhạt hơn khi di chuột qua */
+        transition: background-color 0.3s ease-in-out; /* Hiệu ứng chuyển đổi màu nền */
+    }
+</style>
+
+<!-- Nội dung HTML -->
+<p>Họ và tên: Trần Đăng Quân</p>
+<p>Năm sinh: 2003</p>
+<p>Trường: Đại học Đông Á</p>
+{% endblock %}

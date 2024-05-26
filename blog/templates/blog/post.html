@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <!-- Thêm liên kết đến Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH/9KPP5N7/ZTguh0hNeD8VZPpt8tlngCVRvT7A69cfTloV4Bf74GMfA2w1X5U3Y3tYkRAiA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Định dạng CSS */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #BB1881, #F88B50);
+        }
+
+        .container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Định dạng âm thanh */
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Định dạng cho điều khiển */
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .controls button {
+            margin: 0 5px;
+        }
+
+        /* Tùy chỉnh kích thước biểu tượng trong các nút */
+        .controls i {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>{{ post.title }}</h3>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <p style="text-align: justify;">{{ post.body | safe | linebreaks }}</p>
+        <!-- Thẻ audio -->
+        <audio id="audioPlayer" src="{{ post.audio.url }}" controls></audio>
+        <!-- Nút tua lùi và tua tiến -->
+        <div class="controls">
+            <button onclick="seekBackward()">
+                <i class="fa fa-backward"></i>
+            </button>
+            <button onclick="seekForward()">
+                <i class="fa fa-forward"></i>
+            </button>
+        </div>
+        <a href="/blog/">
+            <button>Quay lại</button>
+        </a>
+    </div>
+
+    <script>
+        // Hàm tua lùi 5 giây
+        function seekBackward() {
+            const audioPlayer = document.getElementById("audioPlayer");
+            const newTime = audioPlayer.currentTime - 5;
+            audioPlayer.currentTime = Math.max(newTime, 0); // Đảm bảo thời gian không nhỏ hơn 0
+        }
+
+        // Hàm tua tiến 5 giây
+        function seekForward() {
+            const audioPlayer = document.getElementById("audioPlayer");
+            // Tính toán thời gian mới sau khi tăng 5 giây
+            const newTime = audioPlayer.currentTime + 5;
+            // Đảm bảo thời gian hiện tại không vượt quá thời lượng của đoạn nhạc
+            audioPlayer.currentTime = Math.min(newTime, audioPlayer.duration);
+        }
+    </script>
+</body>
+
+</html>

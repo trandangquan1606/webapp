@@ -1,0 +1,47 @@
+{% extends "page\base1.html" %}
+{% block title %} contact {% endblock %}
+
+{% block content %}
+<!-- Định nghĩa CSS trong thẻ <style> -->
+<style>
+    /* Định nghĩa phong cách cho phần tử <p> trong khối content */
+    .content p {
+        color: #2c3e50; /* Màu chữ đậm */
+        font-family: 'Roboto', sans-serif; /* Kiểu chữ hiện đại */
+        font-size: 18px; /* Cỡ chữ lớn hơn một chút */
+        line-height: 1.6; /* Khoảng cách dòng để dễ đọc hơn */
+        text-align: left; /* Căn lề trái */
+        margin: 20px 10px; /* Lề trên dưới 20px, lề trái phải 10px */
+        padding: 10px; /* Thêm khoảng cách bên trong phần tử */
+        border-radius: 5px; /* Bo tròn các góc để tạo điểm nhấn */
+        background-color: #f5f7fa; /* Màu nền nhạt để làm nổi bật văn bản */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+        transition: all 0.3s ease-in-out; /* Hiệu ứng chuyển động khi thay đổi */
+    }
+
+    /* Hiệu ứng khi di chuột qua phần tử */
+    .content p:hover {
+        background-color: #e8eef1; /* Đổi màu nền khi di chuột qua */
+        transform: scale(1.02); /* Tăng nhẹ kích thước khi di chuột qua */
+    }
+
+    /* Định dạng riêng cho đoạn email */
+    .content p.email {
+        color: #e74c3c; /* Màu đỏ nổi bật cho email */
+        font-weight: bold; /* In đậm cho đoạn email */
+        text-decoration: none; /* Loại bỏ gạch chân */
+        padding: 10px; /* Khoảng cách nội bộ của đoạn văn */
+        margin-top: 20px; /* Khoảng cách trên đoạn văn */
+    }
+
+    /* Hiệu ứng khi di chuột qua đoạn email */
+    .content p.email:hover {
+        color: #c0392b; /* Màu đỏ đậm hơn khi di chuột qua */
+        background-color: #f0e6e6; /* Màu nền nhạt đỏ */
+        transform: scale(1.05); /* Tăng kích thước nhẹ */
+    }
+</style>
+
+<!-- Nội dung HTML -->
+<p class="email">Email: quan93457@donga.edu.vn</p>
+{% endblock %}
